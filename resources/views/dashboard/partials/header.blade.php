@@ -6,9 +6,9 @@
     <ul class="nav">
 
         <li class="nav-item nav-notif">
-            <a class="nav-link text-muted my-2" href="./#" data-toggle="modal" data-target=".modal-notif">
+            <a class="nav-link text-muted my-2 notificationsIcon" href="./#" data-toggle="modal" data-target=".modal-notif">
                 <span class="fe fe-bell fe-16"></span>
-                <span class="dot dot-md text-danger">{{count(\Illuminate\Support\Facades\Auth::guard('admin')->user()->unreadnotifications) }}</span>
+                <span class="dot dot-md text-danger " id="notificationsIconCounter">{{count(\Illuminate\Support\Facades\Auth::guard('admin')->user()->unreadnotifications) }}</span>
             </a>
         </li>
 
@@ -23,7 +23,7 @@
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body"  id="notificationsModal">
                         <div class="list-group list-group-flush my-n3">
                             @if(count(\Illuminate\Support\Facades\Auth::guard('admin')->user()->notifications) > 0)
                                 @foreach(\Illuminate\Support\Facades\Auth::guard('admin')->user()->notifications->take(5) as $notification )
@@ -44,7 +44,7 @@
                         </div> <!-- / .list-group -->
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-block" data-dismiss="modal">Clear
+                        <button type="button" class="btn btn-secondary btn-block" id="clearNotifications" data-dismiss="modal">Clear
                             All</button>
                     </div>
                 </div>
