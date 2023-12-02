@@ -49,10 +49,10 @@ class RegisteredUserController extends Controller
 
         // Send notification to admin
         $admin = Admin::find(1); // send for one or to many admins with foreach
-//        $admin->notify(new NewUserRegistered($user));
+        $admin->notify(new NewUserRegistered($user));
 
         // can send for one or more a time.
-        Notification::send($admin,new NewUserRegistered($user));
+//        Notification::send($admin,new NewUserRegistered($user));
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
