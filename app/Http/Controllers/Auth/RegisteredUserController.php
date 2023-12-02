@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\NewUserRegisteredEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Models\User;
@@ -53,6 +54,12 @@ class RegisteredUserController extends Controller
 
         // can send for one or more a time.
 //        Notification::send($admin,new NewUserRegistered($user));
+
+
+        //** BroadCast Event Methods */
+        NewUserRegisteredEvent::dispatch();
+//        Broadcast(new NewUserRegisteredEvent());
+
         Auth::login($user);
 
         return redirect(RouteServiceProvider::HOME);
