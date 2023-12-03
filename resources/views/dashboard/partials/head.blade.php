@@ -39,6 +39,8 @@
         var channel = pusher.subscribe('realtime');
         channel.bind('App\\Events\\NewUserRegisteredEvent', function(data) {
             console.log(JSON.stringify(data['messageContent']));
+            $('.notificationsIcon').load(" .notificationsIcon > * ")
+            $('#notificationsModal').load(" #notificationsModal > * ")
         });
     </script>
 
