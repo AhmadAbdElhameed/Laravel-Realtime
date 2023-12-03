@@ -34,7 +34,7 @@ window.Echo = new Echo({
 
 window.Echo.channel('realtime')
     .listen('NewUserRegisteredEvent', (e) => {
+        console.log(e);
         $('.notificationsIcon').load(" .notificationsIcon > * ")
         $('#notificationsModal').load(" #notificationsModal > * ")
-        console.log(e);
     });
