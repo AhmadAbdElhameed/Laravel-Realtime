@@ -32,7 +32,17 @@ window.Echo = new Echo({
     enabledTransports: ['ws', 'wss'],
 });
 
-window.Echo.channel('realtime')
+//** public channel
+// window.Echo.channel('realtime')
+//     .listen('NewUserRegisteredEvent', (e) => {
+//         console.log(e);
+//         $('.notificationsIcon').load(" .notificationsIcon > * ")
+//         $('#notificationsModal').load(" #notificationsModal > * ")
+//     });
+
+//** Private Channel
+
+window.Echo.private('realtime')
     .listen('NewUserRegisteredEvent', (e) => {
         console.log(e);
         $('.notificationsIcon').load(" .notificationsIcon > * ")

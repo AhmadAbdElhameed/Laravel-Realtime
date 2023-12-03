@@ -35,7 +35,7 @@ class NewUserRegisteredEvent implements  ShouldBroadcast
     public function broadcastOn(): array
     {
         return [
-            new Channel('realtime'),
+            new PrivateChannel('realtime'),
         ];
     }
 }
