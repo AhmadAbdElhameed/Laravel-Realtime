@@ -33,12 +33,12 @@ window.Echo = new Echo({
 });
 
 //** public channel
-// window.Echo.channel('realtime')
-//     .listen('NewUserRegisteredEvent', (e) => {
-//         console.log(e);
-//         $('.notificationsIcon').load(" .notificationsIcon > * ")
-//         $('#notificationsModal').load(" #notificationsModal > * ")
-//     });
+window.Echo.channel('realtime')
+    .listen('NewUserRegisteredEvent', (e) => {
+        console.log(e);
+        $('.notificationsIcon').load(" .notificationsIcon > * ")
+        $('#notificationsModal').load(" #notificationsModal > * ")
+    });
 
 //** Private Channel
 
@@ -56,27 +56,27 @@ window.Echo = new Echo({
 
 //** Presence Channel
 
-window.Echo.join(`admin_room`)
-    .here((users) => {
-        console.log('here : ')
-        console.log(users)
-
-        $.each(users,function (index,user){
-            $('#onlineAdmins').append($('<li>').text(user.name))
-        })
-    })
-    .joining((user) => {
-        console.log('joining : ')
-        console.log(user)
-        $('#onlineAdmins').append($('<li>').text(user.name))
-    })
-    .leaving((user) => {
-        console.log('leaving: ')
-        console.log(user)
-        $("#onlineAdmins li:contains('" + user.name + "')").remove();
-    })
-    .error((error) => {
-        console.log('error : ')
-        console.log(error)
-    });
+// window.Echo.join(`admin_room`)
+//     .here((users) => {
+//         console.log('here : ')
+//         console.log(users)
+//
+//         $.each(users,function (index,user){
+//             $('#onlineAdmins').append($('<li>').text(user.name))
+//         })
+//     })
+//     .joining((user) => {
+//         console.log('joining : ')
+//         console.log(user)
+//         $('#onlineAdmins').append($('<li>').text(user.name))
+//     })
+//     .leaving((user) => {
+//         console.log('leaving: ')
+//         console.log(user)
+//         $("#onlineAdmins li:contains('" + user.name + "')").remove();
+//     })
+//     .error((error) => {
+//         console.log('error : ')
+//         console.log(error)
+//     });
 

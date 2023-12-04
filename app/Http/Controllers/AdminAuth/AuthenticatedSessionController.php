@@ -33,7 +33,7 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
 
         // Fire Broadcast event
-        NewAdminRoomEvent::dispatch();
+//        NewAdminRoomEvent::dispatch();
         return \to_route('admin.index');
     }
 

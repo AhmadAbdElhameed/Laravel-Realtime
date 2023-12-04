@@ -29,8 +29,8 @@ use Illuminate\Support\Facades\Broadcast;
 
 
 //Presence Channel Authorization
-Broadcast::channel('admin_room', function ($admin) {
-    return ['name' => $admin->name];
-},['guards' => ['admin']]);
+//Broadcast::channel('admin_room', function ($admin) {
+//    return ['name' => $admin->name];
+//},['guards' => ['admin']]);
 
 
