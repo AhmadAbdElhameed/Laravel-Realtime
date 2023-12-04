@@ -43,12 +43,40 @@ window.Echo = new Echo({
 //** Private Channel
 
 //** Private Channel Authorization
-window.Echo.private('realtime')
-    .listen('NewUserRegisteredEvent', (e) => {
-        console.log(e);
-        $('.notificationsIcon').load(" .notificationsIcon > * ")
-        $('#notificationsModal').load(" #notificationsModal > * ")
+// window.Echo.private('realtime')
+//     .listen('NewUserRegisteredEvent', (e) => {
+//         console.log(e);
+//         $('.notificationsIcon').load(" .notificationsIcon > * ")
+//         $('#notificationsModal').load(" #notificationsModal > * ")
+//     })
+//     .listen('NewUserRegisteredEvent2', (e) => {
+//         console.log(e);
+//     });
+
+
+//** Presence Channel
+
+window.Echo.join(`admin_room`)
+    .here((users) => {
+        console.log('here : ')
+        console.log(users)
+
+        $.each(users,function (index,user){
+            $('#onlineAdmins').append($('<li>').text(user.name))
+        })
     })
-    .listen('NewUserRegisteredEvent2', (e) => {
-        console.log(e);
+    .joining((user) => {
+        console.log('joining : ')
+        console.log(user)
+        $('#onlineAdmins').append($('<li>').text(user.name))
+    })
+    .leaving((user) => {
+        console.log('leaving: ')
+        console.log(user)
+        $("#onlineAdmins li:contains('" + user.name + "')").remove();
+    })
+    .error((error) => {
+        console.log('error : ')
+        console.log(error)
     });
+
