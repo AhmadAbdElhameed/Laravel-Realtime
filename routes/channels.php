@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Broadcast;
 //});
 
 //Private Channel Authorization
-//Broadcast::channel('realtime', function ($user) {
-//    return true;
-//},['guards' => ['admin']]);
+Broadcast::channel('realtime', function ($admin) {
+    return $admin->type == 'super_admin';
+},['guards' => ['admin']]);
 
 ////Private Channel Authorization (Channel class)
-Broadcast::channel('realtime', SecureChannel::class,['guards' => ['admin']]);
+//Broadcast::channel('realtime', SecureChannel::class,['guards' => ['admin']]);
