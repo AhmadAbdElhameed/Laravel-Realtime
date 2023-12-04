@@ -42,6 +42,7 @@ window.Echo = new Echo({
 
 //** Private Channel
 
+//** Private Channel Authorization
 window.Echo.private('realtime')
     .listen('NewUserRegisteredEvent', (e) => {
         console.log(e);

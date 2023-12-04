@@ -1,5 +1,6 @@
 <?php
 
+use App\Broadcasting\SecureChannel;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -16,6 +17,11 @@ use Illuminate\Support\Facades\Broadcast;
 //Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 //    return (int) $user->id === (int) $id;
 //});
-Broadcast::channel('realtime', function ($user) {
-    return true;
-},['guards' => ['admin']]);
+
+//Private Channel Authorization
+//Broadcast::channel('realtime', function ($user) {
+//    return true;
+//},['guards' => ['admin']]);
+
+////Private Channel Authorization (Channel class)
+Broadcast::channel('realtime', SecureChannel::class,['guards' => ['admin']]);
