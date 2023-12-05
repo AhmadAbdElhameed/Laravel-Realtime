@@ -52,8 +52,16 @@ class NewUserRegisteredEvent implements  ShouldBroadcast
      *
      * @return array<string, mixed>
      */
-    public function broadcastWith(): array
+//    public function broadcastWith(): array
+//    {
+//        return ['name' => $this->user->name,'email' => $this->user->email];
+//    }
+
+    /**
+     * Determine if this event should broadcast.
+     */
+    public function broadcastWhen(): bool
     {
-        return ['name' => $this->user->name,'email' => $this->user->email];
+        return $this->user->name == 'ahmed';
     }
 }
