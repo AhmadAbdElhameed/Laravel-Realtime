@@ -38,4 +38,12 @@ class NewUserRegisteredEvent implements  ShouldBroadcast
             new Channel('realtime'),
         ];
     }
+
+    /**
+     * The event's broadcast name.
+     */
+    public function broadcastAs(): string
+    {
+        return 'register_event';
+    }
 }
