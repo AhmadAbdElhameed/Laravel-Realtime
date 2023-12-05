@@ -46,4 +46,14 @@ class NewUserRegisteredEvent implements  ShouldBroadcast
     {
         return 'register_event';
     }
+
+    /**
+     * Get the data to broadcast.
+     *
+     * @return array<string, mixed>
+     */
+    public function broadcastWith(): array
+    {
+        return ['name' => $this->user->name,'email' => $this->user->email];
+    }
 }
