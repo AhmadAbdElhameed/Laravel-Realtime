@@ -33,12 +33,12 @@ window.Echo = new Echo({
 });
 
 //** public channel
-// window.Echo.channel('realtime')
-//     .listen('.register_event', (e) => {
-//         console.log(e);
-//         $('.notificationsIcon').load(" .notificationsIcon > * ")
-//         $('#notificationsModal').load(" #notificationsModal > * ")
-//     });
+window.Echo.channel('realtime')
+    .listen('.register_event', (e) => {
+        console.log(e);
+        $('.notificationsIcon').load(" .notificationsIcon > * ")
+        $('#notificationsModal').load(" #notificationsModal > * ")
+    });
 
 
 //** Private Channel
@@ -84,9 +84,9 @@ window.Echo = new Echo({
 
 
 //** public channel from model (user)
-window.Echo.channel('realtime_from_model')
-    .listen('.user_created_event', (e) => {
-        console.log(e);
-        $('.notificationsIcon').load(" .notificationsIcon > * ")
-        $('#notificationsModal').load(" #notificationsModal > * ")
-    });
+// window.Echo.channel('realtime_from_model')
+//     .listen('.UserCreated', (e) => {
+//         console.log(e);
+//         $('.notificationsIcon').load(" .notificationsIcon > * ")
+//         $('#notificationsModal').load(" #notificationsModal > * ")
+//     });

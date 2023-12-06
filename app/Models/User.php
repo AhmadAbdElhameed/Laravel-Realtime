@@ -13,7 +13,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable,BroadcastsEvents;
+
+    // use BroadcastsEvents;
+    use HasApiTokens, HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -91,21 +93,37 @@ class User extends Authenticatable
      *
      * @return array<int, \Illuminate\Broadcasting\Channel>
      */
-    public function broadcastOn(string $event): array
-    {
-        return [
-            new Channel('realtime_from_model'),
-        ];
-    }
+//    public function broadcastOn(string $event): array
+//    {
+//        return [
+//            new Channel('realtime_from_model'),
+//        ];
+//    }
 
     /**
      * The model event's broadcast name.
      */
-    public function broadcastAs(string $event): string|null
-    {
-        return match ($event) {
-            'created' => 'user_created_event',
-            default => null,
-        };
-    }
+//    public function broadcastAs(string $event): string|null
+//    {
+//        return match ($event) {
+//            'created' => 'user_created_event',
+//            default => null,
+//        };
+//    }
+
+
+
+    /**
+     * Get the data to broadcast for the model.
+     *
+     * @return array<string, mixed>
+     */
+//    public function broadcastWith(string $event): array
+//    {
+//        return match ($event) {
+//            'created' => ['email' => $this->email],
+//            default => ['model' => $this],
+//        };
+//    }
+
 }

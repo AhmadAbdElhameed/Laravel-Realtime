@@ -60,8 +60,8 @@ class NewUserRegisteredEvent implements  ShouldBroadcast
     /**
      * Determine if this event should broadcast.
      */
-    public function broadcastWhen(): bool
-    {
-        return $this->user->name == 'ahmed';
-    }
+//    public function broadcastWhen(): bool
+//    {
+//        return $this->user->name == 'ahmed';
+//    }
 }
