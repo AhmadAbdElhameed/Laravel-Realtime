@@ -44,5 +44,6 @@
 {{--        });--}}
 {{--    </script>--}}
 
-    @vite('resources/js/admin.js')
+{{--    @vite('resources/js/admin.js')--}}
+    @vite('resources/js/app.js')
 </head>
