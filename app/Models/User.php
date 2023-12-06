@@ -97,4 +97,15 @@ class User extends Authenticatable
             new Channel('realtime_from_model'),
         ];
     }
+
+    /**
+     * The model event's broadcast name.
+     */
+    public function broadcastAs(string $event): string|null
+    {
+        return match ($event) {
+            'created' => 'user_created_event',
+            default => null,
+        };
+    }
 }

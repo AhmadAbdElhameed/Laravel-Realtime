@@ -83,9 +83,9 @@ window.Echo = new Echo({
 
 
 
-//** public channel
+//** public channel from model (user)
 window.Echo.channel('realtime_from_model')
-    .listen('.UserCreated', (e) => {
+    .listen('.user_created_event', (e) => {
         console.log(e);
         $('.notificationsIcon').load(" .notificationsIcon > * ")
         $('#notificationsModal').load(" #notificationsModal > * ")
