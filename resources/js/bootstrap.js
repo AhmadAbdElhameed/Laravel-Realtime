@@ -30,6 +30,7 @@ window.Echo = new Echo({
     wsPort: 6001,
     forceTLS: false,
     disableStats: true,
+    cluster:"mt1",
 });
 
 // *******  PUSHER  *********** //
