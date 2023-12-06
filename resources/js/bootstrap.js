@@ -15,23 +15,23 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  * allows your team to easily build robust real-time web applications.
  */
 
-import Echo from 'laravel-echo';
-
-import Pusher from 'pusher-js';
-window.Pusher = Pusher;
-
-console.log('hello from bootstrap file');
-
-// *******  WEBSOCKET  *********** //
-window.Echo = new Echo({
-    broadcaster: 'pusher',
-    key: 'socketKEY',
-    wsHost: window.location.hostname,
-    wsPort: 6001,
-    forceTLS: false,
-    disableStats: true,
-    cluster:"mt1",
-});
+// import Echo from 'laravel-echo';
+//
+// import Pusher from 'pusher-js';
+// window.Pusher = Pusher;
+//
+// console.log('hello from bootstrap file');
+//
+// // *******  WEBSOCKET  *********** //
+// window.Echo = new Echo({
+//     broadcaster: 'pusher',
+//     key: 'socketKEY',
+//     wsHost: window.location.hostname,
+//     wsPort: 6001,
+//     forceTLS: false,
+//     disableStats: true,
+//     cluster:"mt1",
+// });
 
 // *******  PUSHER  *********** //
 // window.Echo = new Echo({
@@ -46,12 +46,12 @@ window.Echo = new Echo({
 // });
 
 //** public channel
-window.Echo.channel('realtime')
-    .listen('NewUserRegisteredEvent', (e) => {
-        console.log(e);
-        $('.notificationsIcon').load(" .notificationsIcon > * ")
-        $('#notificationsModal').load(" #notificationsModal > * ")
-    });
+// window.Echo.channel('realtime')
+//     .listen('NewUserRegisteredEvent', (e) => {
+//         console.log(e);
+//         $('.notificationsIcon').load(" .notificationsIcon > * ")
+//         $('#notificationsModal').load(" #notificationsModal > * ")
+//     });
 
 
 //** Private Channel
