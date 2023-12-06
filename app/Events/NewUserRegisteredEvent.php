@@ -42,10 +42,10 @@ class NewUserRegisteredEvent implements  ShouldBroadcast
     /**
      * The event's broadcast name.
      */
-    public function broadcastAs(): string
-    {
-        return 'register_event';
-    }
+//    public function broadcastAs(): string
+//    {
+//        return 'register_event';
+//    }
 
     /**
      * Get the data to broadcast.
